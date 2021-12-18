@@ -6,7 +6,8 @@ void IncomeMoney(double income) {
 	s.Income = s.Income + income;
 	s.myqueue.push(income);
 	TotalMoney();
-	cout << "Gained " << income << " New amount " << s.Income << endl;
+	cout << "Gained " << income << " New amount " << s.Total << endl;
+	s.Income = 0.0;
 }
 void TotalMoney() {
 	s.Total = s.Total + s.Income;
@@ -43,7 +44,7 @@ void OpeningSaving() {
 	int ops = 0; double inc = 0.0; int exits = 0; int out = 0;
 	do {
 		system("cls");
-		cout << "1. Save Money\n 2. Spend Money\n 3. Check Incomes\n 4. Check Spends\n 5 Exit\n 6. Total in Book" << endl;
+		cout << " 1. Save Money\n 2. Spend Money\n 3. Check Incomes\n 4. Check Spends\n 5 Exit\n 6. Total in Book" << endl;
 		cout << "Enter number: "; cin >> ops;
 		switch (ops) {
 		case 1: cout << "Amount: "; cin >> inc; IncomeMoney(inc); break;
@@ -54,5 +55,6 @@ void OpeningSaving() {
 			  else { out = 1; }break;
 		case 6:cout << "Total Amount in Book " << s.Total << endl; break;
 		}
+		system("pause>0");
 	} while (out < 3);
 }
