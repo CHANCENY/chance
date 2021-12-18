@@ -5,6 +5,7 @@ void IncomeMoney(double income) {
 
 	s.Income = s.Income + income;
 	s.myqueue.push(income);
+	s.backup.push(income);
 	TotalMoney();
 	cout << "Gained " << income << " New amount " << s.Total << endl;
 	s.Income = 0.0;
@@ -17,11 +18,13 @@ void SpendMoney(double sending) {
 		s.Expediture = sending;
 		s.Total = s.Total - s.Expediture;
 		s.myqueue1.push(s.Expediture);
+		s.backup2.push(s.Expediture);
 		cout << "spend " << s.Expediture << " New balance " << s.Total << endl;
 	}
 }
 void OpenBook() {
 	double line2 = 0.0;
+	if (s.myqueue.empty()) { s.myqueue = s.backup; }
 	while (!s.myqueue.empty()) {
 		cout << s.myqueue.front() << endl;
 		double line = s.myqueue.front();
@@ -32,6 +35,7 @@ void OpenBook() {
 }
 void OpenBook2() {
 	double line2 = 0.0;
+	if (s.myqueue.empty()) { s.myqueue1 = s.backup2; }
 	while (!s.myqueue1.empty()) {
 		cout << s.myqueue1.front() << endl;
 		double line = s.myqueue1.front();

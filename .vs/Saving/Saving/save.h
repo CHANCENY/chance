@@ -11,6 +11,9 @@ struct Saving {
 	double Expediture;
 	queue<double> myqueue;
 	queue<double> myqueue1;
+	queue<double> backup;
+	queue<double> backup2;
+
 };
 void IncomeMoney(double income);
 void TotalMoney();
